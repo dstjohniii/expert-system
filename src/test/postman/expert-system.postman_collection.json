@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "5f41e4b6-638e-40cd-8e86-a78027979e2a",
+		"name": "expert-system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Backward Chaining",
+			"item": [
+				{
+					"name": "Eiffel Tower in the World",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"location\": {\r\n        \"entity\": \"Eiffel Tower\",\r\n        \"location\": \"World\"\r\n    },\r\n    \"facts\": [\r\n        {\r\n            \"entity\": \"Europe\",\r\n            \"location\": \"World\"\r\n        },\r\n        {\r\n            \"entity\": \"France\",\r\n            \"location\": \"Europe\"\r\n        },\r\n        {\r\n            \"entity\": \"Paris\",\r\n            \"location\": \"France\"\r\n        },\r\n        {\r\n            \"entity\": \"Eiffel Tower\",\r\n            \"location\": \"Paris\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/location",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eiffel Tower NOT in the World",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"location\": {\r\n        \"entity\": \"Eiffel Tower\",\r\n        \"location\": \"World\"\r\n    },\r\n    \"facts\": [\r\n        {\r\n            \"entity\": \"Europe\",\r\n            \"location\": \"World\"\r\n        },\r\n        {\r\n            \"entity\": \"Paris\",\r\n            \"location\": \"France\"\r\n        },\r\n        {\r\n            \"entity\": \"Eiffel Tower\",\r\n            \"location\": \"Paris\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/location",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"location"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rules Based",
+			"item": [
+				{
+					"name": "Gold",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/discount?type=gold",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"discount"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "gold"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Diamond",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/discount?type=gold",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"discount"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "gold"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
