@@ -4,6 +4,7 @@ import com.poc.expertsystem.model.Location;
 
 dialect  "mvel"
 
+global com.poc.expertsystem.model.Location query;
 global com.poc.expertsystem.model.LocationResults result;
 
 query isContainedIn( String x, String y )
@@ -14,20 +15,20 @@ end
 
 rule "check decision"
 when
-    isContainedIn("Eiffel Tower", "World"; )
+    isContainedIn(query.getEntity(), query.getLocation(); )
 then
     System.out.println( "\nDecision taken--Eiffel tower is in the World" );
     System.out.println( "-----------All Facts-----------------" );
-    result.setDecision("Eiffel tower is in the World")
+    result.setDecision(query.getEntity() + " is in " + query.getLocation())
 end
 
 rule "check decision false"
 when
-    not isContainedIn("Eiffel Tower", "World"; )
+    not isContainedIn(query.getEntity(), query.getLocation(); )
 then
     System.out.println( "\nDecision taken--Eiffel tower is not in the World");
     System.out.println( "-----------All Facts-----------------" );
-    result.setDecision("Eiffel tower is not in the World")
+    result.setDecision(query.getEntity() + " is NOT in " + query.getLocation())
 end
 
 rule "get all facts"

@@ -23,7 +23,10 @@ public class LocationService {
 		try {
 			var result = new LocationResults();
 			ksession.setGlobal("result", result);
+			ksession.setGlobal("query", request.getLocation());
+			
 			insertFacts(request, ksession);
+			
 			ksession.fireAllRules();
 			return result;
 		} finally {
