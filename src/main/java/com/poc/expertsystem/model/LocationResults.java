@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 public class LocationResults {
-	private String value;
+	private String decision;
 	private List<String> facts = new ArrayList<>();
 	
 	public void addFact(String fact) {

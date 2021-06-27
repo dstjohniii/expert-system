@@ -8,5 +8,5 @@ import lombok.Data;
 @Data
 public class LocationRequest {
 	private Location location;
-	private List<String> facts = new ArrayList<>();
+	private List<Location> facts = new ArrayList<>();
 }

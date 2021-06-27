@@ -14,24 +14,20 @@ end
 
 rule "check decision"
 when
-    isContainedIn("Eiffel tower", "World"; )
+    isContainedIn("Eiffel Tower", "World"; )
 then
-    System.out.println( "Decision taken--Eiffel tower is in the World" );
-    System.out.println( "-----------------------------" );
-    System.out.println( "-----------------------------" );
+    System.out.println( "\nDecision taken--Eiffel tower is in the World" );
     System.out.println( "-----------All Facts-----------------" );
-    result.setValue("Decision taken--Eiffel tower is in the World")
+    result.setDecision("Eiffel tower is in the World")
 end
 
 rule "check decision false"
 when
-    not isContainedIn("Eiffel tower", "World"; )
+    not isContainedIn("Eiffel Tower", "World"; )
 then
-    System.out.println( "Decision taken--Eiffel tower is not in the World");
-    System.out.println( "-----------------------------" );
-    System.out.println( "-----------------------------" );
+    System.out.println( "\nDecision taken--Eiffel tower is not in the World");
     System.out.println( "-----------All Facts-----------------" );
-    result.setValue("Decision taken--Eiffel tower is not in the World")
+    result.setDecision("Eiffel tower is not in the World")
 end
 
 rule "get all facts"
