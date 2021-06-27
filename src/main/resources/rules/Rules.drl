@@ -1,4 +1,4 @@
-package com.rule
+package rules
 
 import com.poc.expertsystem.model.Product
 
@@ -13,4 +13,4 @@ rule "Offer for Gold"
 		productObject: Product(type=="gold")
 	then
 		productObject.setDiscount(25);
-	end
+	enda

@@ -15,6 +15,7 @@
 	<description>Proof of concept for an expert system</description>
 	<properties>
 		<java.version>11</java.version>
+		<drools.version>7.56.0.Final</drools.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -31,8 +32,20 @@
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-compiler</artifactId>
-			<version>7.56.0.Final</version>
+			<version>${drools.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-core</artifactId>
+			<version>${drools.version}</version>
+		</dependency>
+		
+		 <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-ci</artifactId>
+            <version>${drools.version}</version>
+         </dependency>
 			
 		<dependency>
 		    <groupId>org.projectlombok</groupId>

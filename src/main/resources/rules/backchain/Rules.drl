@@ -1,0 +1,43 @@
+package rules.backchain
+ 
+import com.poc.expertsystem.model.Location;
+
+dialect  "mvel"
+
+global com.poc.expertsystem.model.LocationResults result;
+
+query isContainedIn( String x, String y )
+  Location( x, y; )
+  or
+  ( Location( z, y; ) and isContainedIn( x, z; ) )
+end
+
+rule "check decision"
+when
+    isContainedIn("Eiffel tower", "World"; )
+then
+    System.out.println( "Decision taken--Eiffel tower is in the World" );
+    System.out.println( "-----------------------------" );
+    System.out.println( "-----------------------------" );
+    System.out.println( "-----------All Facts-----------------" );
+    result.setValue("Decision taken--Eiffel tower is in the World")
+end
+
+rule "check decision false"
+when
+    not isContainedIn("Eiffel tower", "World"; )
+then
+    System.out.println( "Decision taken--Eiffel tower is not in the World");
+    System.out.println( "-----------------------------" );
+    System.out.println( "-----------------------------" );
+    System.out.println( "-----------All Facts-----------------" );
+    result.setValue("Decision taken--Eiffel tower is not in the World")
+end
+
+rule "get all facts"
+when
+    isContainedIn(entity, location; )
+then
+    System.out.println( "Entity " + entity + " is in " + location );
+    result.addFact("Entity " + entity + " is in " + location);
+end

@@ -3,4 +3,7 @@
    <kbase name="rules" packages="rules">
         <ksession name="rulesSession"/>
     </kbase>
+    <kbase name="backrules" packages="rules.backchain">
+        <ksession name="backRulesSession"/>
+    </kbase>
 </kmodule>
