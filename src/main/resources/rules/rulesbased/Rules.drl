@@ -1,0 +1,33 @@
+package rules.rulesbased
+
+import com.poc.expertsystem.model.loan.Applicant
+
+global com.poc.expertsystem.model.loan.LoanResponse result;
+
+rule "Low Credit Decline"
+	when 
+		applicantObject: Applicant(fico < 501)
+	then
+		result.setStatus("Decline");
+	end
+	
+rule "High Credit Approve"
+	when 
+		applicantObject: Applicant(fico > 500)
+	then
+		result.setStatus("Approve");
+	end
+	
+rule "Under 18"
+	when 
+		applicantObject: Applicant(age < 18)
+	then
+		result.setStatus("Decline");
+	end
+	
+rule "Annual Salary"
+	when 
+		applicantObject: Applicant(annualSalary > 100000)
+	then
+		result.setStatus("Approve");
+	end

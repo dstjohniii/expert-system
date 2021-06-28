@@ -61,6 +61,60 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Mike",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"location\": {\r\n        \"entity\": \"Mike\",\r\n        \"location\": \"United States\"\r\n    },\r\n    \"facts\": [\r\n        {\r\n            \"entity\": \"Home\",\r\n            \"location\": \"St. Peters\"\r\n        },\r\n        {\r\n            \"entity\": \"St. Peters\",\r\n            \"location\": \"Missouri\"\r\n        },\r\n        {\r\n            \"entity\": \"Missouri\",\r\n            \"location\": \"United States\"\r\n        },\r\n        {\r\n            \"entity\": \"Mike\",\r\n            \"location\": \"Home\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/location",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mike Not in US",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"location\": {\r\n        \"entity\": \"Mike\",\r\n        \"location\": \"United States\"\r\n    },\r\n    \"facts\": [\r\n        {\r\n            \"entity\": \"Home\",\r\n            \"location\": \"St. Peters\"\r\n        },\r\n        {\r\n            \"entity\": \"St. Peters\",\r\n            \"location\": \"Missouri\"\r\n        },\r\n        {\r\n            \"entity\": \"Mike\",\r\n            \"location\": \"Home\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/location",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"location"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -97,7 +151,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/discount?type=gold",
+							"raw": "localhost:8080/discount?type=diamond",
 							"host": [
 								"localhost"
 							],
@@ -108,8 +162,35 @@
 							"query": [
 								{
 									"key": "type",
-									"value": "gold"
+									"value": "diamond"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Loan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Tom Hanks\",\r\n    \"annualSalary\": \"1000000\",\r\n    \"fico\": 750,\r\n    \"age\": 62\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/loan",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loan"
 							]
 						}
 					},
